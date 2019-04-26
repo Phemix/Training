@@ -1,0 +1,72 @@
+regex = /x+/
+/x+/
+str = 'xxyxxxy'
+"xxyxxxy"
+regex.exec(str)
+["xx", index: 0, input: "xxyxxxy", groups: undefined]
+regex.exec(str)
+["xx", index: 0, input: "xxyxxxy", groups: undefined]
+regex.exec(str)
+["xx", index: 0, input: "xxyxxxy", groups: undefined]
+regex = /x+/g
+/x+/g
+regex.exec(str)
+["xx", index: 0, input: "xxyxxxy", groups: undefined]
+regex.exec(str)
+["xxx", index: 3, input: "xxyxxxy", groups: undefined]
+regex2 = /^x+/m
+/^x+/m
+str2 = 'xxx\nxXX\nxxxX'
+"xxx
+xXX
+xxxX"
+str2.match(regex2)
+["xxx", index: 0, input: "xxx↵xXX↵xxxX", groups: undefined]
+str2.match(regex2)
+["xxx", index: 0, input: "xxx↵xXX↵xxxX", groups: undefined]0: "xxx"groups: undefinedindex: 0input: "xxx↵xXX↵xxxX"length: 1__proto__: Array(0)
+str2.match(regex2)
+["xxx", index: 0, input: "xxx↵xXX↵xxxX", groups: undefined]
+regex2 = /^x+/m/g
+VM342:1 Uncaught ReferenceError: g is not defined
+    at <anonymous>:1:17
+(anonymous) @ VM342:1
+regex2 = /^x+/m\/g
+VM345:1 Uncaught SyntaxError: Invalid regular expression flags
+regex2 = /^x+/mg
+/^x+/gm
+str2.match(regex2)
+(3) ["xxx", "x", "xxx"]0: "xxx"1: "x"2: "xxx"length: 3__proto__: Array(0)
+'y'.codePointAt(0).toString(16)
+"79"
+\u{79}.test('x')
+VM538:1 Uncaught ReferenceError: y is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM538:1
+\u{79}\.test('x')
+VM544:1 Uncaught SyntaxError: Invalid or unexpected token
+/\u{79}/.test('y')
+false
+/\u{79}/u.test('y')
+true
+str3 =\U{ABC2}
+VM586:1 Uncaught SyntaxError: Invalid or unexpected token
+/^.$/.test('\U{2ABC})
+VM628:1 Uncaught SyntaxError: Invalid or unexpected token
+/^.$/.test('\U{2ABC}')
+false
+/^.$/u.test('\U{2ABC}')
+false
+/^.$/u.test('\u{2ABC}')
+true
+regex4 = /ab+/y
+/ab+/y
+str4 = 'abbabbaabbb'
+"abbabbaabbb"
+regex.exec(str4)
+null
+regex4.exec(str4)
+["abb", index: 0, input: "abbabbaabbb", groups: undefined]0: "abb"groups: undefinedindex: 0input: "abbabbaabbb"length: 1__proto__: Array(0)
+regex4.exec(str4)
+["abb", index: 3, input: "abbabbaabbb", groups: undefined]
+regex4.exec(str4)
+null
