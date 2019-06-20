@@ -1,12 +1,29 @@
-#Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion
-#Get-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
-#Get-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
-#Get-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
-#Get-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
+Write-Output "These are the available Registry Queries"
 
 
-Get-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce
-Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost
+$Tab = [char]9
+Write-Output "$Tab 1. Check for passwords in Current User registry keys"
+Write-Output "$Tab 2. Check for passwords in Local Machine registry keys"
+Write-Output "$Tab 3. Check for programs that are configured to run at logon (Current User)"
+Write-Output "$Tab 4. Check for programs that are configured to run at logon (Local Machine)"
 
-Registry::HKCU\Software\Microsoft\Windows\ CurrentVersion\Explorer\RunMRU
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID
+
+
+
+$name = Read-Host 'What number would you like to query?'
+if ($name -eq 1) {
+    $HKCUPasswords = reg query HKCU /f password /t REG_SZ /s
+    Write-Output $HKCUPasswords             
+}
+elseif ($name -eq 2) {
+        $HKLMPasswords = reg query HKLM /f password /t REG_SZ /s
+        Write-Output $HKLMPasswords
+}
+elseif ($name -eq 3) {
+       $RunRegKeys =  Get-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+       Write-Output $RunRegKeys
+
+}
+elseif ($name -eq 4) {
+       $RunRegKeys =   Get-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+       Write-Output $RunRegKeys
