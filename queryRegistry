@@ -9,3 +9,4 @@ Get-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\C
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost
 
 Registry::HKCU\Software\Microsoft\Windows\ CurrentVersion\Explorer\RunMRU
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID
