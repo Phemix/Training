@@ -1,0 +1,20 @@
+MAC OS X
+Mac OS X is a mix of several technologies that differ not only in what they do but also in where they came from, which philosophies they represent, and how they are implemented. Nevertheless, Mac OS X presents a cohesive and consistent picture to the end user. The fact that Apple computers have a well-defined, limited hardware base is conducive to Apple's success in maintaining a mostly positive user experience despite the underlying software eclecticism seen in Mac OS X. 
+
+DARWIN
+Darwin can be best understood as a collection of open source technologies that have been integrated by Apple to form a fundamental part of Mac OS X. It contains source code both from Apple and from third parties, including the Open Source and Free Software communities. Apple makes Darwin available as a set of packages, where each package is an archive containing source code of some component of Mac OS X
+
+MAC OS KERNEL
+The Mac OS X kernel is called xnu. In the simplest sense, xnu could be viewed as having a Mach-based core, a BSD-based operating system personality, and an object-oriented runtime environment for drivers[7] and other kernel extensions. The Mach component is based on Mach 3, whereas the BSD component is based on FreeBSD 5. A running kernel contains numerous drivers that do not reside in the xnu code base but have their own Darwin packages. In this sense, the Mac OS X kernel is "more than" xnu
+
+MACH
+If the xnu kernel is the core of Mac OS X, then Mach may be considered the core of xnu. Mach provides critical low-level services that are transparent to applications. System aspects that Mach is responsible for include the following: 
+? Hardware abstraction to some extent 
+? Processor management, including symmetric multiprocessing and scheduling 
+? Preemptive multitasking, including support for tasks and threads 
+? Virtual memory management, including low-level paging, memory protection, sharing, and inheritance 
+
+
+
+BSD 
+The xnu kernel contains a substantial amount of BSD-derived code, which is what we collectively refer to as BSD in the context of Mac OS X. However, it is not the case that a well-defined BSD kernel runs within xnu, whether as a single Mach task or otherwise. Whereas some BSD-derived portions in xnu are similar to their original forms, other portions are quite different, since they were made to coexist with non-BSD entities such as the I/O Kit and Mach. Consequently, one can find several instances of code of different origins intertwined in the xnu kernel

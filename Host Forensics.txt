@@ -1,0 +1,66 @@
+DLL
+-------
+DLL files are binary files that can contain executable code and resources like images, etc. Unlike applications, these cannot be directly executed, but an application will load them as and when they 
+are required (or all at once during startup).
+
+DUMPBIN
+--------------
+You have to use an external tool like DUMPBIN or Dependency Walker 
+which will not only show what publicly visible functions (known as exports) are contained inside the DLL files and also what other DLL files it requires and which exports from those DLL files this DLL file is dependent upon
+
+EVENTS
+--------------
+Always track the 4672 that follow the 4624 events
+5140 - FIle share mounted
+106 - Task Scheduled
+200 - Task executed
+201 - Task completed
+141 - Task removed
+
+
+RDP Forensics Shii
+--------------------
+1149 - Remote Cnnectn Mgr (authenticated)
+21  - Logon Sucess
+23  - Logoff
+24  - Disconnect
+
+*RDP Logins are Logon Type 3
+
+
+SVCHOST
+------------------
+A generic host that runs apps mostly from DLLs.
+The svchost.exe file is located in the folder C:\Windows\System32
+
+To check tasks that are run by svc, run *taslist /svc*
+Current version run key set so SW is activated when user logs in
+
+
+
+%4 probably means space
+
+
+*REdline can probably be used for memory analysis
+
+
+Download Process Explorer to see more better view of svchost
+
+
+Windows Code
+--------------
+%systemroot%  is C:\Windows and identical to %windir%
+
+
+%systemdrive%\system32\inetsrv\config - This file will list the site name, site ID, web root, and log file path for each configured IIS site
+
+
+HKLM\CurrentControlSet\Control\FileSystem\NtfsDisableLastAccessUpdate controls if files would be updated or not
+
+The $LogFile is located within the root of each NTFS volume and is typically 64MB by default. The log is circular and can roll over on a frequent basis
+The journal is located in path \$Extend\$UsnJrnl. You may not find the USN journal on every volume because it’s not strictly required by NTFS
+
+The Volume Shadow Copy (VSC) service provides a mechanism for maintaining point-in-time copies, also known as “snapshots” or “restore points,” of files on an entire volume
+
+
+The Volume Shadow Copy (VSC) service provides a mechanism for maintaining point-in-time copies, also known as “snapshots” or “restore points,” of files on an entire volume

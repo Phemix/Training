@@ -1,0 +1,11 @@
+
+The Windows registry serves as a primary storage location for system con?gurations and other information. Numerous third-party commercial and open source tools have been released to interpret and manipulate registry hives, but a comprehensive description of the registry’s data structures seems to be missing from the public domain
+
+The operating system has a specific order in which it seeks and automatically run programs; the Windows Registry takes priority over the Startup Folder. 
+
+
+
+
+
+Links
+https://www.forensicfocus.com/a-forensic-analysis-of-the-windows-registry

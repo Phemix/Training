@@ -1,0 +1,93 @@
+DLL
+-------
+DLL files are binary files that can contain executable code and resources like images, etc. Unlike applications, these cannot be directly executed, but an application will load them as and when they 
+are required (or all at once during startup).
+
+DUMPBIN
+--------------
+You have to use an external tool like DUMPBIN or Dependency Walker 
+which will not only show what publicly visible functions (known as exports) are contained inside the DLL files and also what other DLL files it requires and which exports from those DLL files this DLL file is dependent upon
+
+EVENTS
+--------------
+Always track the 4672 that follow the 4624 events
+5140 - FIle share mounted
+106 - Task Scheduled
+200 - Task executed
+201 - Task completed
+141 - Task removed
+
+
+RDP Forensics Shii
+--------------------
+1149 - Remote Cnnectn Mgr (authenticated)
+21  - Logon Sucess
+23  - Logoff
+24  - Disconnect
+
+*RDP Logins are Logon Type 3
+
+
+SVCHOST
+------------------
+A generic host that runs apps mostly from DLLs.
+The svchost.exe file is located in the folder C:\Windows\System32
+
+To check tasks that are run by svc, run *taslist /svc*
+Current version run key set so SW is activated when user logs in
+
+
+
+%4 probably means space
+
+
+*REdline can probably be used for memory analysis
+* NF dump
+
+JUMPLIST
+----------------
+Tracks every executable that has ever been executed on that system
+
+REGRIPPER
+-----------------
+TO extract and examine the Windows Registry contents
+
+
+Download Process Explorer to see more better view of svchost
+
+
+WINDOWS REGISTRY
+--------------------
+Can be accessed by running 'regedit'
+
+
+GARY KELLSER FILE SIGNATURE website
+----------------------------
+To search for file signature
+
+NSM
+--------------
+Means Network Security Monitoring
+
+Types of IOCs
+-----------------------
+Atomic Indicators - cannot be broken down any further (DOmain names, IP, filenames)
+
+* Mutexes can identify malware
+* Unique registry keys are used for persistence
+
+
+OPENioc fILE FORMATS
+_____________________
+OpenIOC Framework
+CyBox (XML-based)
+Yara (FIle SPecific) - can scan disk or network
+
+IOCe from Mandiant can be used to store ICOs
+
+PART INFO
+------------------
+Useful for collecting disk info and part of PartitionMagic
+
+
+
