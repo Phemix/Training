@@ -58,9 +58,16 @@ Windows Code
 HKLM\CurrentControlSet\Control\FileSystem\NtfsDisableLastAccessUpdate controls if files would be updated or not
 
 The $LogFile is located within the root of each NTFS volume and is typically 64MB by default. The log is circular and can roll over on a frequent basis
-The journal is located in path \$Extend\$UsnJrnl. You may not find the USN journal on every volume because itís not strictly required by NTFS
+The journal is located in path \$Extend\$UsnJrnl. You may not find the USN journal on every volume because it‚Äôs not strictly required by NTFS
 
-The Volume Shadow Copy (VSC) service provides a mechanism for maintaining point-in-time copies, also known as ìsnapshotsî or ìrestore points,î of files on an entire volume
+The Volume Shadow Copy (VSC) service provides a mechanism for maintaining point-in-time copies, also known as ‚Äúsnapshots‚Äù or ‚Äúrestore points,‚Äù of files on an entire volume
 
 
-The Volume Shadow Copy (VSC) service provides a mechanism for maintaining point-in-time copies, also known as ìsnapshotsî or ìrestore points,î of files on an entire volume
+The Volume Shadow Copy (VSC) service provides a mechanism for maintaining point-in-time copies, also known as ‚Äúsnapshots‚Äù or ‚Äúrestore points,‚Äù of files on an entire volume
+
+%ALLUSERSPROFILE% 
+-----------
+%ALLUSERSPROFILE% is C:/ProgramData
+
+
+
