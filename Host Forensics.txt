@@ -69,5 +69,15 @@ The Volume Shadow Copy (VSC) service provides a mechanism for maintaining point-
 -----------
 %ALLUSERSPROFILE% is C:/ProgramData
 
+SYMANTEC
+--------------
+The default location for Symantec Endpoint Protection client logs is %ALLUSERSPROFILE%\Application Data\Symantec\Symantec Endpoint Protection\Logs
+
+Symantec Endpoint Protection creates quarantine files in the %ALLUSERSPROFILE%\Application Data\Symantec\Symantec Endpoint Protection\Quarantine folder by default. The quarantine files have a file extension of .vbn (VBN) and are stored in a custom format
+
+
+ 
+ 
+ 
 
 
