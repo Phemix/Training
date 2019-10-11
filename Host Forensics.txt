@@ -78,6 +78,22 @@ Symantec Endpoint Protection creates quarantine files in the %ALLUSERSPROFILE%\A
 
  
  
+ MS SQL SERVER
+ --------------------
  
+ C:\Program Files\Microsoft SQL Server\MSSQL11. 
+ MSSQLSERVER\MSSQL\Log\ERRORLOG
+ 
+ APACHE
+ ---------------
+ 
+ Common names of the Apache configuration file are httpd.conf, apache.conf, and apache2.conf. In Unix environments, common configuration file locations are /etc, /etc/apache, /etc/apache2, and each of those paths use /usr/local as a prefix.
+ 
+ In a Unix environment, common Apache log directories are /var/log/httpd, /var/log/apache, and /var/log/apache2
+ 
+  In Unix environments, a common default content location also called a web root, is /var/www
+  
+  
+  
 
 
