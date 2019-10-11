@@ -105,6 +105,12 @@ Symantec Endpoint Protection creates quarantine files in the %ALLUSERSPROFILE%\A
  
   In Unix environments, a common default content location also called a web root, is /var/www
   
+  DHCP
+  --------------
+  
+ DHCP Logs can be found on a host at EventS Viewer/Windows Logs/Microsoft/DHCP-Client/Microsof-Windows-DHCP-Clients/Operational
+ These logs have to be enabled as they are disabled by Default
+  
   
   
 
