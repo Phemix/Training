@@ -91,6 +91,11 @@ Symantec Endpoint Protection creates quarantine files in the %ALLUSERSPROFILE%\A
  
  MySQL configuration file, typically named my.cnf or my.conf, will indicate what logging is enabled, where the log files are, and the location of database storage. The configuration file is normally in /etc, /etc/mysql or one of those directories under the /usr/local directory.
  
+ ORACLE
+ --------------
+ 
+ The log file name is listener.log, and in Oracle 12c, the file is in the Oracle app install directory under diag\tnslsnr\<instance name>\listener\trace\listener.log. The tns listener also maintains an alert log in XML format named log.xml, which in Oracle 12c can be found in the directory diag\tnslsnr\<instance name>\listener\alert\log.xml. 
+ 
  APACHE
  ---------------
  
