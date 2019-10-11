@@ -84,6 +84,8 @@ Symantec Endpoint Protection creates quarantine files in the %ALLUSERSPROFILE%\A
  C:\Program Files\Microsoft SQL Server\MSSQL11. 
  MSSQLSERVER\MSSQL\Log\ERRORLOG
  
+  The files that store actual MSSQL database content have extensions of .mdf and .ldf. The MDF files are the primary database files, and the LDF files contain transaction log data. These files are stored in a directory named Data within the MSSQL server instance directory. 
+ 
  APACHE
  ---------------
  
