@@ -1,0 +1,5 @@
+                                                         WINDOWS FORENSICS
+MFT
+------------
+The Master File Table (MFT) is the primary source of metadata in NTFS. It contains or indirectly references everything about a file: 
+its timestamps, size in bytes, attributes (such as permissions), parent directory, and contents.
