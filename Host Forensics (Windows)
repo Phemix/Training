@@ -37,4 +37,36 @@ Each NTFS volume will contain its own MFT, stored within the volume root as a fi
  The Update Sequence Number (USN) journal, named $UsnJrnl, provides a higher-level summary of changes to a volume. A given entry includes the type of change event that occurred, its corresponding timestamp, the file name, its attributes, and the MFT entry identifiers for the file and its parent directory. 
  The journal is located in path \$Extend\$UsnJrnl
  
+ FILE SYSTEM REDIRECTOR
+ ---------------------
+ Windows provides a compatibility subsystem, Windows 32-bit on Windows 64-bit (WoW64), that helps ensure 32-bit applications run 
+ properly on 64-bit operating systems.
+ 
+  If a 32-bit application attempts to load a file from %SYSTEMROOT%\system32\, then WoW64 will transparently redirect it to the 
+  directory %SYSTEMROOT%\SysWOW64\, which contains the proper 32-bit DLLs
+ 
+ the actual %SYSTEMROOT%\system32\directory, which is reserved for 64-bit applications
+ 
+ Windows maintains a separate Program Files directory, called \Program Files (x86)\, for 32-bit applications, 
+ whereas 64-bit typically use the normal \Program Files\path.
+ 
+ 
+ PREFETCH
+ -------------
+ Prefetch is a performance optimization mechanism that Microsoft introduced in Windows XP to reduce boot and application loading times
+ 
+ Specifically, it tracks the first two minutes of boot processes and the first 10 seconds of all other applications’ startup
+ 
+ Prefetch files are stored in %SYSTEMROOT%\Prefetch
+ 
+ AppName-########.pf  Up to 128 application-specific prefetch files, each with the extension .pf, and each representing an 
+ executable file that ran at least once. (def more, maybe 512 max I think or even 1024)
+ 
+ EVENT VIEWER
+ ---------------
+ 
+ • Application  %SYSTEMROOT%\System32\Winevt\Logs\Application.evtx
+• System  %SYSTEMROOT%\System32\Winevt\Logs\System.evtx
+• Security  %SYSTEMROOT%\System32\Winevt\Logs\Security.evtx
+ 
  
