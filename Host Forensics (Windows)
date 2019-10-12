@@ -3,3 +3,38 @@ MFT
 ------------
 The Master File Table (MFT) is the primary source of metadata in NTFS. It contains or indirectly references everything about a file: 
 its timestamps, size in bytes, attributes (such as permissions), parent directory, and contents.
+
+Each NTFS volume will contain its own MFT, stored within the volume root as a file named $MFT.
+
+ NTFS metadata files such as the $MFT are not accessible via Windows Explorer or other standard application programming interface (API) 
+ file-access methods. 
+ 
+ SI AND FN TIMESTAMPS
+ ---------------------
+ 
+ Fortunately, it is a bit more difficult to manipulate the $FN MACE timestamps
+ 
+ Windows uses its $SI timestamps to set the $FN timestamps for the new MFT entry. Restoring the file to its original location and remodifying ensures that all 
+ eight MACE timestamps match the desired values. This trick is often referred to as “double-time-stomping.
+ 
+ $DATA
+ -------------
+ 
+ is named $DATA. This attribute typically provides a listing of the clusters on disk wherein a file’s contents reside
+ 
+ Recall that a typical MFT entry has a fixed length of 1,024 bytes. That’s a decent amount of headroom for most files—even given 
+ the plethora of attributes it tracks. So for efficiency’s sake, NTFS will actually store the complete contents of files under 
+ approximately 700–800 bytes within the $DATA attribute itself
+ 
+ 
+ $LOG
+ -----------
+ The NTFS log file, named $LogFile, tracks all transactions that change the structure of a volume. That includes file or directory creation/copy/deletes, 
+ changes to file metadata, and changes to INDX records.
+ 
+ $JRNAL
+ ----------------
+ The Update Sequence Number (USN) journal, named $UsnJrnl, provides a higher-level summary of changes to a volume. A given entry includes the type of change event that occurred, its corresponding timestamp, the file name, its attributes, and the MFT entry identifiers for the file and its parent directory. 
+ The journal is located in path \$Extend\$UsnJrnl
+ 
+ 
