@@ -92,3 +92,20 @@ process is executed or terminated. These events include the full path to the exe
 the parent process ID, and the associated logon ID under which it executed.
 
 every time a service is started or stopped, the Service Control Manager (SCM) creates an entry in the System event log.
+
+.job Files
+----------------
+Configuration data for scheduled tasks is stored in .job files—one per task—within the %SYSTEMROOT%\Tasks directory
+
+%SYSTEMROOT%\Tasks\SchedLgU.txt - Task Scheduler Logs
+
+REGISTRY
+-----------------
+Windows maintains five main registry hives in the path %SYSTEMROOT%\system32\config: SYSTEM, SECURITY, SOFTWARE, SAM, and DEFAULT
+
+The root registry keys are as follows:
+• HKEY_LOCAL_MACHINE (aka HKLM)
+• HKEY_USERS (aka HKU)
+• HKEY_CURRENT_USER (aka HKCU)
+• HKEY_CURRENT_CONFIG (aka HKCC)
+• HKEY_CLASSES_ROOT
