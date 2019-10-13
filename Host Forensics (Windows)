@@ -85,4 +85,10 @@ Each NTFS volume will contain its own MFT, stored within the volume root as a fi
 • CacheInteractive  The user logged on with domain credentials that were validated using locally cached data rather than contacting 
   the domain controller.
   
- 
+ Process Tracking
+ ------------------------
+Process tracking, also known as detailed tracking or process auditing, generates an event in the Security event log every time a 
+process is executed or terminated. These events include the full path to the executable on disk, the process ID, 
+the parent process ID, and the associated logon ID under which it executed.
+
+every time a service is started or stopped, the Service Control Manager (SCM) creates an entry in the System event log.
