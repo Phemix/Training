@@ -109,3 +109,10 @@ The root registry keys are as follows:
 • HKEY_CURRENT_USER (aka HKCU)
 • HKEY_CURRENT_CONFIG (aka HKCC)
 • HKEY_CLASSES_ROOT
+
+• HKU\{SID} exists for each user security identifier (SID) on the system. The subkey for each SID maps to the 
+corresponding user’s NTUSER.DAT hive file.
+• HKU\{SID}_Classes exists for each user SID on the system. The subkey for each SID maps to the corresponding user’s 
+USRCLASS.DAT hive file.
+HKEY_CURRENT_USER is simply a symbolic link to HKEY_USERS\{SID}\ for the user currently logged in to the console.
+ HKEY_CLASSES_ROOT is presented as a merged set of subkeys from HKLM\Software\Classes and HKEY_CURRENT_USER\Software\Classes
