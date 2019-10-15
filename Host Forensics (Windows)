@@ -115,13 +115,44 @@ corresponding user’s NTUSER.DAT hive file.
 • HKU\{SID}_Classes exists for each user SID on the system. The subkey for each SID maps to the corresponding user’s 
 USRCLASS.DAT hive file.
 * HKEY_CURRENT_USER is simply a symbolic link to HKEY_USERS\{SID}\ for the user currently logged in to the console.
-HKEY_CURRENT_CONFIG maps to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Hardware Profiles\XXXX, where XXXX is a four-digit number
+* HKEY_CURRENT_CONFIG maps to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Hardware Profiles\XXXX, where XXXX is a four-digit number
 representing the active profile. CurrentControlSet, referenced within the aforementioned path, is itself a link that 
 points to HKLM\SYSTEM\ControlSetXXX, where XXX is a three-digit number representing the active configuration control set.
 * HKEY_CLASSES_ROOT is presented as a merged set of subkeys from HKLM\Software\Classes and HKEY_CURRENT_USER\Software\Classes
 
 
-On a 64-bit version of Windows, 64-bit applications can access the registry path HKEY_LOCAL_MACHINE\SOFTWARE\. A 32-bit 
+* On a 64-bit version of Windows, 64-bit applications can access the registry path HKEY_LOCAL_MACHINE\SOFTWARE\. A 32-bit 
 application may attempt to access the same path, but WOW64 will instead transparently redirect it to the 
 path HKEY_LOCAL_MACHINE\SOFTWARE\WoW6432Node\
 
+*** Images ***
+
+
+Shim Cache
+The Shim Cache, also known as the Application Compatibility Cache
+
+HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache\AppCompatCache
+
+Services
+Each service will have its own set of values and subkeys under HKLM\CurrentControlSet\services\{servicename}\,
+
+The majority of Windows services are implemented as DLLs rather than standalone executable files. In order to properly load and
+execute the code within these DLLs, Windows relies on a hosting process, svchost.exe.
+
+ The Windows Service Control Manager (SCM), services.exe, is responsible for launching Windows services upon startup
+ You can also invoke the Services Management snap-in, services.msc, from the Run menu to review and edit the configuration 
+ of existing services.
+ 
+  You can also use the tasklist /svc console command (native to Windows) to list the services running under each svchost.exe process. 
+  
+  • HKLM\SOFTWARE\Microsoft\​Windows\CurrentVersion\Run
+• HKLM\SOFTWARE\Microsoft\Windows​\CurrentVersion\RunOnce
+• HKEY_USERS\{SID}\SOFTWARE\Microsoft​\Windows\CurrentVersion\RunOnce
+• HKEY_USERS\{SID}\SOFTWARE\Microsoft​\Windows\CurrentVersion\RunOnce
+
+
+Active Setup  
+Active Setup is a mechanism provided by Windows to facilitate software installation and update across all users on a system
+
+• HKLM\SOFTWARE\Microsoft\​Active Setup\Installed Components
+• HKEY_USERS\{SID}\SOFTWARE\​Microsoft\Active Setup\Installed Components
