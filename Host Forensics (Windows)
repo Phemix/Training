@@ -156,3 +156,115 @@ Active Setup is a mechanism provided by Windows to facilitate software installat
 
 • HKLM\SOFTWARE\Microsoft\​Active Setup\Installed Components
 • HKEY_USERS\{SID}\SOFTWARE\​Microsoft\Active Setup\Installed Components
+
+
+AppInit_DLLs 
+The AppInit_DLLs registry value contains a list of DLLs that will be automatically loaded whenever any user-mode application that 
+is linked to user32.dll is launched
+user32.dll is a module that contains Windows API functions related the Windows user interface (Window handling, basic UI functions, 
+and so forth)
+
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs
+
+Each of these values is of type REG_MULTI_SZ, meaning that the data will be a set of null-terminated strings. 
+Moreover, packages can be referenced without supplying the .DLL file extension
+
+LSA Packages  
+Three registry keys configure the Windows Local Security Authority (LSA) and how it handles authentication events. Windows automatically loads the DLLs specified within these values upon system bootup:
+• HKLM\System\CurrentControlSet\Control\Lsa\Authentication Packages
+• HKLM\System\CurrentControlSet\Control\Lsa\Notification Packages
+• HKLM\System\CurrentControlSet\Control\Lsa\Security Packages
+
+Browser Helper Objects  
+Browser Helper Objects (BHOs) serve as add-ons or plugins for Internet Explorer
+
+BHO DLLs are Component Object Model (COM) components that get loaded into the Internet Explorer process space each time 
+a new instance of iexplore.exe
+HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects\{CLSID}\
+Next, for each CLSID of interest, refer to HKEY_CLASSES_ROOT\CLSID\{CLSID}\InprocServer32\(Default).
+
+Shell Extensions  
+Shell extensions are to Windows Explorer as Browser Helper Objects are to Internet Explorer.
+The handlers for each of these items are listed under HKCR\{sub-key}\shellex\.
+
+Winlogon Shell  
+Windows provides users with the ability to customize the shell that is loaded upon user logon. By default, this is set to Explorer.exe;
+• HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell
+• HKEY_USERS\{SID}\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell
+
+Winlogon Userinit
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit
+By default, this is set to userinit, which ensures that %SYSTEMROOT%\system32\userinit.exe will execute. In turn, userinit.exe is 
+responsible for loading logon and group policy scripts, several other auto-runs, and the Explorer shell. 
+
+User Hive investigations
+ several user-specific keys that we’ve found to be the most helpful during our incident response investigations: 
+ Shellbags, UserAssist, MUICache, Most Recently Used (MRU), TypedURLs, and TypedPaths.
+ 
+ Shellbags  Have you ever noticed that Windows Explorer will consistently restore previously open windows with the exact same size, 
+ position, and view configuration (including visible columns)? If so, you’ve seen shellbags at work: 
+ • HKEY_USERS\{SID}\Software\​Microsoft\Windows\Shell\
+ 
+ UserAssist  
+ The UserAssist key tracks applications that a user has launched through the Windows Explorer shell:
+ HKEY_USERS\{SID}\Software\​Microsoft\Windows\CurrentVersion​\Explorer\UserAssist
+ 
+ MUICache  
+ The MUICache registry key provides yet another source of evidence for programs that were previously executed by a user.
+ HKEY_USERS\​{SID}_Classes\Local Settings\Software\Microsoft​\Windows\Shell\MuiCache
+ 
+ Most Recently Used (MRU) Keys  
+ Windows operating system components and applications all can use registry keys to track most recently used (MRU) items. 
+ MRU keys are typically stored within the NTUSER.DAT hives rather than system-wide registry hives.
+ 
+ Explorer Open and Save MRU 
+ Windows Explorer maintains several sets of registry keys under ComDlg32 that track the files and directories most recently 
+ accessed in the Open and Save As dialog menus:
+ • HKEY_USERS\{SID}\Software​\Microsoft\Windows\CurrentVersion\​Explorer\ComDlg32\OpenPidlMRU
+• HKEY_USERS\{SID}\Software\Microsoft​\Windows\CurrentVersion\Explorer​\ComDlg32\LastVisitedPidlMRU
+• HKEY_USERS\{SID}\Software\Microsoft​\Windows\CurrentVersion\Explorer​\ComDlg32\CIDSizeMRU
+
+Start Menu Run MRU  
+This key tracks a list of applications that have been previously executed through the Start menu’s Run dialog:
+HKEY_USERS\{SID}\Software​\Microsoft\Windows\CurrentVersion​\Explorer\RunMRU
+
+RecentDocs  
+The RecentDocs key contains a list of recently opened files (not just documents—any extension) used to populate the File menus of 
+various applications:
+
+Remote Desktop MRU  
+The Remote Desktop Connection utility (also known as the Terminal Services or Server Client) provides users with
+the ability to establish Remote Desktop Protocol (RDP) sessions to other Windows systems. 
+
+• HKEY_USERS\{SID}\Software\Microsoft\Terminal Server Client\Default\
+• HKEY_USERS\{SID} \Software\Microsoft\Terminal Server Client\Servers\
+
+LNK Files
+Windows shortcut files, also known as “link files” due to their extension (.lnk), act as pointers to other files or folders on a system.
+Link files differ from symbolic links insofar as they only serve as extensions for Windows Explorer, whereas a symbolic link can be 
+transparently acted upon as if it were its target file by any program.
+• C:\Documents and Settings\%USERNAME%\Recent\
+• C:\Documents and Settings\%USERNAME%\Application Data\Microsoft\Office\Recent\
+
+Although LNK files contain human-readable strings and can be examined in a hex editor, we recommend using tools designed to recognize 
+their format and provide decoded output. 
+
+Jump Lists
+Windows 7 added Jump Lists as a new taskbar navigation feature. Right-clicking a taskbar icon produces a pop-up menu that can include 
+recently accessed items, frequently accessed items, and application-specific actions.
+• C:\Users\%USERNAME%\AppData\​Roaming\Microsoft\Windows\​Recent\AutomaticDestinations
+• C:\Users\%USERNAME%\AppData\​Roaming\Microsoft\Windows\​Recent\CustomDestinations
+
+Recycle Bin
+/c/$Recycle.Bin is the root of recyle bin and users access the instance of their SID
+
+Get S-ID
+WMIC useraccount get name,sid in Windows Command Prompt
+
+
+
+
+
+HKEY_USERS\{SID}\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+ 
+
