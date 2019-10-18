@@ -261,10 +261,18 @@ Recycle Bin
 Get S-ID
 WMIC useraccount get name,sid in Windows Command Prompt
 
-
-
-
-
 HKEY_USERS\{SID}\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+
+
+
+MEMORY FORENSICS
+Like most modern operating systems, Windows provides a virtual memory subsystem that can use both RAM and hard disk space together as 
+a single source of “memory” for running processes. “Memory” on a Windows system therefore is composed of two fundamental components: 
+physical memory and the pagefile. 
+
+  Physical Memory
+The term “physical memory” simply refers to the contents of RAM. We acquire the contents of physical memory by taking an image of it
+
+
  
 
