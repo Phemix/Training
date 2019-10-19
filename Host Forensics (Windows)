@@ -273,6 +273,69 @@ physical memory and the pagefile.
   Physical Memory
 The term “physical memory” simply refers to the contents of RAM. We acquire the contents of physical memory by taking an image of it
 
+The Pagefile
+The pagefile is a key component of memory architecture in most modern operating systems. It provides a secondary storage location, 
+typically residing on a slower fixed drive, for data used by running processes that cannot fit within physical memor
+
+The kernel maintains a table that tracks where each “page” in virtual memory actually resides—either at a real memory address or
+within the page file—and shuttles data back and forth as needed
+
+Windows stores the pagefile at %SYSTEMDRIVE%\pagefile.sys by default, but its name and location can be changed to any volume and 
+even to be split across multiple files. If it’s missing, refer to registry key and value 
+HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PagingFiles
+
+Crash Dumps
+In the event of a system crash, Windows can automatically generate “crash dump” files that contain some or all of the contents of memory.
+
+ Kernel Memory Dump  This is the default setting for Windows Vista, 7, Server 2008, and later. It contains all the kernel’s 
+ read/write memory pages at the time of the crash, as well a list of processes and loaded drivers. 
+• Small Memory Dump (aka Minidump)  Contains a limited set of data, including the currently loaded drivers, processor context,
+kernel call stack, and metadata for the halted process and thread. These files are usually under 5MB in size. 
+Minidump files are stored in %SYSTEMROOT%\Minidump\ by default; 
+this path can be changed by modifying the registry value HKLM\SYSTEM\CurrentControlSet\Control\CrashControl\MinidumpDir.
+• Complete memory dump  Contains a full image of physical memory. These files will be the same size as the amount of physical memory 
+installed on the system. Users cannot select this option through the Startup and Recovery UI,
+but can manually enable it by setting the registry value HKLM\SYSTEM\CurrentControlSet\Control\CrashControl\CrashDumpEnabled to 1. 
+Complete memory dumps are saved to %SYSTEMROOT%\memory.dmp by default; this path can be changed by 
+modifying the registry value HKLM\SYSTEM\CurrentControlSet\Control\CrashControl\DumpFile.
+
+
+Hibernation Files
+Upon powering up, Windows reads the contents of the hibernation file and writes it back to memory, resulting in a restored and 
+intact user session. The default path of the hibernation file is %SYSTEMDRIVE%\Hiberfil.sys.
+
+Memory Analysis
+Through memory analysis, we can reconstruct the same sort of data by enumerating kernel data structures, 
+known as Executive Process (EPROCESS) blocks, that account for each running process on a system.
+
+Note that processes only track their parent PID and not the parent process name or path. It’s up to your analysis tool to walk 
+through all PIDs and map out the parent-child relationships into a hierarchy or tree. 
+This is also why it is not possible to identify a running process’s parent once it has terminated—the parent 
+PID won’t map back to anything that’s currently running.
+
+
+Sections
+Each process in memory has its own virtual address space—essentially a range of addresses, allocated by the memory manager, 
+that it can use to read/write data and execute code.
+
+section analysis can allow you to identify all the DLLs loaded by a running process in memory.
+
+Credentials  
+The Mimikatz toolkit can recover Windows account passwords, both hashes and clear text, by reading and parsing the 
+contents of the Local Security Authority Subsystem Service (LSASS) memory, commonly running as lsass.exe.
+
+Pagefile Analysis
+How do you analyze an acquired pagefile.sys? Unfortunately, the pagefile has no intrinsic structure, which significantly limits your
+available analysis techniques. The most common approach is to run “strings” against the file and search its contents for keywords of 
+interest. Certain search techniques, such as looking for references to cmd. exe or other remnants of command shell usage
+
+Process Injection  
+In process injection, a malicious injecting process causes a legitimate process (the injected) to load and execute the code of 
+its choice. Once this occurs successfully, the injecting process can terminate and allow the injected process to continue running 
+its malicious code as designed. 
+
+
+
 
  
 
