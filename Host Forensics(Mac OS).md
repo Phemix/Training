@@ -175,6 +175,53 @@ The extracts shown were generated with the command line praudit –s [filename].
 
 We mentioned earlier that airportd maintained a list of recent 802.11 station associations in /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist
 
+LAUNCHD REPLACING CRON
+----------
+All launchd configurations are stored as XML in five directories, listed next. The list is taken directly from the man page for launchd.
+
+*** IMAGE ***
+
+Additionally, the command that manages launchd, launchctl, maintains lists of commands to execute at startup. These configuration files are listed here:
+
+*** MAGE ***
+
+The LaunchDaemon directories store XML definition files for services, such as sshd and Apache. The LaunchAgent directories store definition files for CRON-like actions. Tasks, when loaded into launchd, are considered to be active. 
+
+
+*Bonjour is Apple’s implementation of Zero Configuration Networking and allows systems to broadcast the availability of services over a local network. 
+
+As an example of a valid LaunchDaemon service, the following excerpt is from the sshd service declaration file in /System/Library/LaunchDaemons
+
+
+Application Installers
+------------------------
+When applications are installed, the installer framework will store information about the files that are placed on the drive. In /private/var/db/receipts, there are typically two files retained per installation: a bill of materials (BOM) containing a complete inventory of files, and a plist that lists the install date, package identifier, and path access control lists. 
+
+*plutil can read .plist files
+*lsbom can open BOM files
+
+Artifact                 Evidence Source
+Directory Services      List of SMB and AFP shares
+Contents of /var/run    State files and PID files
+
+Artifact                                                        Evidence Available
+/Library/LaunchAgents
+/System/Library/LaunchAgents                                Agents started by the system or per user
+~/Library/LaunchAgents
+
+/Library/LaunchDaemons
+/System/Library/LaunchDaemons                               Daemons started by the system or per user
+~/Library/LaunchDaemons
+
+/Library/StartupItems 
+/System/Library/StartupItems                                Legacy system startup items (predating launchd)
+
+
+
+
+
+
+
 
 
 
