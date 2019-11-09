@@ -125,10 +125,9 @@ points to HKLM\SYSTEM\ControlSetXXX, where XXX is a three-digit number represent
 application may attempt to access the same path, but WOW64 will instead transparently redirect it to the 
 path HKEY_LOCAL_MACHINE\SOFTWARE\WoW6432Node\
 
-*** Images ***
 
 ![Imgur](https://github.com/Phemix/Training/blob/master/sysinfo.png)
-![Imgur](http://i.imgur.com/zTONrOD.jpg)
+![Imgur](https://github.com/Phemix/Training/blob/master/net_secinfo.png)
 
 
 Shim Cache
