@@ -10,6 +10,77 @@
  ------------------------------
   In Windows Vista and newer versions, check all directories one level under C:\ProgramData and C:\Users\{username}\AppData.4
   
+  Registry uninstall information 
+  -----------------
+  * Examine the registry keys under HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall. 
+  * On 64-bit versions of Windows, be sure to check HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall, which holds information on any 32-bit applications installed
+  
+  Default registry configuration data locations 
+  ---------------
+   * Check all sub-keys one level down from HKLM\SOFTWARE.
+   * On 64-bit systems, be sure to check HKLM\SOFTWARE\Wow6432Node
+   
+   Default application installation directory (OS X)
+   -------------
+   * The default installation directory for applications in OS X is /Applications.
+   * OS X applications generally place user-specific data within directories under the user’s profile. The default location is /Users/{profile}/Library/Application Support.
+   
+   Application artifacts for Linux distros
+   --------------------------
+   • Systemwide configuration data  In most Linux distributions, the /etc and /usr/local/etc/directories are the primary locations where systemwide application configuration data is stored.
+• User application data  User-specific application data is typically found in subdirectories under the user’s home directory, by default /home/{username}.
+• Executable locations  The standard directories where you will find executables are /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, and /usr/local/sbin.
+• Add-on software  A location where some third-party applications and application data are installed to is /opt.
+
+
+Package Managers
+----------------
+Sometimes a faster way to get the answers you are looking for is to simply query the package manager
+
+* RPM-based distributions  The RPM Package Manager (RPM) is used by a number of popular Linux distributions. 
+*** inset RPM queries ***
+• Debian-based distributions  Debian-based distributions use the dpkg package manager, and by default its packages are named with a .deb extension.
+   dpkg --get-selections
+
+Internet Explorer
+-------------------
+Artifact            Location
+Autocomplete
+                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer\​IntelliForms\Storage1
+                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer​\IntelliForms​\Storage2
+Typed URLs
+                    HKEY_CURRENT_USER\Software​\Microsoft\Internet Explorer\TypedURLs
+                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer\​TypedURLsTime
+Preferences
+                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer
+Cache
+                    C:\Users\{username}\AppData\Local​\Microsoft\Windows​\Temporary Internet Files\
+Bookmarks
+                    C:\Users\{username}​\Favorites
+Cookies
+                    C:\Users\{username}\AppData\​Roaming\Microsoft\​Windows\Cookies
+                    C:\Users\{username}​\AppData\Roaming\​Microsoft\Windows\Cookies\Low
+ESE  The ESE (Extensible Storage Engine) database replaced the index.dat file functionality beginning with IE version 10. Internet browsing history is stored in a single database file per user. Microsoft has used ESE in the past for LDAP, Exchange, and the Windows Search Index. There are tools on the market that can read and interpret this data, which we cover shortly. The following table lists the location and file names for IE ESE databases:
+
+Windows 7 – 8.1
+                     {systemdrive}\Users\{username}\AppData\Local\Microsoft\Windows\WebCache
+                    • WebCacheV01.dat
+                    • WebCacheV16.dat
+                    • WebCacheV24.dat
+                    
+Google Chrome
+--------------------
+
+
+Windows Vista/7/8
+                      C:\Users\{username}​\AppData\Local\​Google\Chrome\
+Linux
+                      /home/{username}/.config/google-chrome/
+OS X
+                      /Users/{username}/​Library/Application Support/Google/Chrome/
+   
+  
+  
   
   
  
