@@ -85,6 +85,61 @@ OS X<br />
       Cache
       --------------
       Chrome’s cache is located at User Data\Default\Cache
+      
+      Cookies
+      -----------
+      The file Cookies contains all cookies the browser saves; Chrome uses a database rather than many individual text files. 
+      
+      Downloads
+      --------------
+       The History file also contains details about files that a user saves using Chrome. Old versions of Chrome have all this data in          the “downloads” table
+
+Mozilla FireFox
+------------------
+
+        Data Formats and Locations
+        ---------------------------
+        Mozilla and Chrome have a number of similarities in the way they store data. Mozilla, like Chrome, stores nearly all of its data         in files, and Mozilla uses SQLite and JSON formats for most of its data storage.
+        
+        Windows Vista and newer
+        C:\Users\{username}​\AppData\Roaming\​Mozilla\Firefox
+        C:\Users\{username}\AppData\Local\Mozilla\Firefox (Cache)
+        Linux
+        /home/{username}/.mozilla/firefox /home/{username}/.​cache/.mozilla/firefox (Cache)
+        OS X
+        /Users/{username}​/Library/Application Support/Firefox /Users/{username}/Library​/Caches/Firefox (Cache)
+        
+E-MAIL CLIENTS
+------------------
+
+ The body is the actual content of the e-mail, such as text or attachments. It is common for the body to be encoded in the Multipurpose Internet Mail Extensions (MIME) format. This encoding standard was created so newer multimedia contents are handled correctly as the e-mail passes through different types e-mail systems.
+        
+        Data Storage Locations
+        ---------------------
+        C:\Users\{Windows_profile}​\AppData\Local\Microsoft​\Outlook\{login_name}.ost
+        C:\Users\{Windows_profile}​\Documents\Outlook Files\Outlook.pst
+        
+A reliable place to check for data files that are configured in Outlook is the Windows registry key HKEY_CURRENT_USER\Software\Microsoft\Office\{version}\Outlook\Search\Catalog, where {version} is the “short” Office version number.
+
+
+        Data Format
+        -------------
+        Outlook uses a file format called the Personal Folder File (PFF). In a Microsoft Exchange–based environment, Outlook will store         a copy of e-mail offline in a file called the Offline Storage Table (OST), which is a form of PFF. In non-Exchange environments,         such as Post Office Protocol (POP), or in Outlook archives, the file format used is the Personal Storage Table (PST), also a             form of PFF.
+  
+  Microsoft Outlook for Mac
+  ---------------------------
+  
+Outlook’s features are also similar to Apple Mail; however, Outlook for Mac allows users to set up Exchange server-side rules and integrate with other Exchange and Microsoft enterprise features, such as Lync. 
+
+
+          Data Storage Location and Format
+          --------------------------
+          Microsoft Outlook for Mac 2011 stores user data under the directory /Users/{profile}/Documents/Microsoft User Data/Office 2011           Identities.
+          
+          
+          Tools
+          ----------------
+          A tool that specifically supports Outlook for Mac 2011, such as Aid4Mail or Emailchemy, is recommended. Not all tools support           properly handling Unicode, and even though it may just be standard ASCII characters in Unicode format, they may not handle               them properly.
   
   
  
