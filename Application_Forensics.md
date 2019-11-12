@@ -45,38 +45,36 @@ Sometimes a faster way to get the answers you are looking for is to simply query
 Internet Explorer
 -------------------
 Artifact            Location
-Autocomplete
-                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer\​IntelliForms\Storage1
+Autocomplete <br /> 
+                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer\​IntelliForms\Storage1<br /> 
                     HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer​\IntelliForms​\Storage2
-Typed URLs
-                    HKEY_CURRENT_USER\Software​\Microsoft\Internet Explorer\TypedURLs
-                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer\​TypedURLsTime
-Preferences
-                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer
-Cache
-                    C:\Users\{username}\AppData\Local​\Microsoft\Windows​\Temporary Internet Files\
-Bookmarks
-                    C:\Users\{username}​\Favorites
-Cookies
-                    C:\Users\{username}\AppData\​Roaming\Microsoft\​Windows\Cookies
-                    C:\Users\{username}​\AppData\Roaming\​Microsoft\Windows\Cookies\Low
+Typed URLs<br /> 
+                    HKEY_CURRENT_USER\Software​\Microsoft\Internet Explorer\TypedURLs<br /> 
+                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer\​TypedURLsTime<br /> 
+Preferences<br /> 
+                    HKEY_CURRENT_USER\​Software\Microsoft\​Internet Explorer<br /> 
+Cache<br /> 
+                    C:\Users\{username}\AppData\Local​\Microsoft\Windows​\Temporary Internet Files\<br /> 
+Bookmarks<br /> 
+                    C:\Users\{username}​\Favorites<br /> 
+Cookies<br /> 
+                    C:\Users\{username}\AppData\​Roaming\Microsoft\​Windows\Cookies<br /> 
+                    C:\Users\{username}​\AppData\Roaming\​Microsoft\Windows\Cookies\Low<br /> 
 ESE  The ESE (Extensible Storage Engine) database replaced the index.dat file functionality beginning with IE version 10. Internet browsing history is stored in a single database file per user. Microsoft has used ESE in the past for LDAP, Exchange, and the Windows Search Index. There are tools on the market that can read and interpret this data, which we cover shortly. The following table lists the location and file names for IE ESE databases:
 
-Windows 7 – 8.1
-                     {systemdrive}\Users\{username}\AppData\Local\Microsoft\Windows\WebCache
-                    • WebCacheV01.dat
-                    • WebCacheV16.dat
-                    • WebCacheV24.dat
+Windows 7 – 8.1<br /> 
+                     {systemdrive}\Users\{username}\AppData\Local\Microsoft\Windows\WebCache<br /> 
+                    • WebCacheV01.dat<br /> 
+                    • WebCacheV16.dat<br /> 
+                    • WebCacheV24.dat<br /> 
                     
 Google Chrome
 --------------------
-
-
-Windows Vista/7/8
-                      C:\Users\{username}​\AppData\Local\​Google\Chrome\
-Linux
-                      /home/{username}/.config/google-chrome/
-OS X
+Windows Vista/7/8<br /> 
+                      C:\Users\{username}​\AppData\Local\​Google\Chrome\<br /> 
+Linux<br /> 
+                      /home/{username}/.config/google-chrome/<br /> 
+OS X<br /> 
                       /Users/{username}/​Library/Application Support/Google/Chrome/
    
   
