@@ -77,8 +77,14 @@ Linux<br />
 OS X<br /> 
                       /Users/{username}/​Library/Application Support/Google/Chrome/
    
-  
-  
+      History
+      -------------
+      the History file is just a SQLite database
+      The file Archived History is a stripped-down version of History that tracks activity older than three months. It drops a few of         the ancillary tables Chrome uses and keeps the core “urls” and “visits” tables,
+   
+      Cache
+      --------------
+      Chrome’s cache is located at User Data\Default\Cache
   
   
  
