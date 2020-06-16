@@ -1,0 +1,70 @@
+AWS Notes
+
+AWS GLOBAL INFRASTRUCTURE
+------------------------------
+Region - One or More Availability Zone
+Availability - DAta Centers in a region that are connected
+Edge Locations - more like CDNs, server Amazon CloudFront and DNS 53 Service
+
+
+CREDS
+-------
+6qHya|xl$Mm| - Password
+LuioHjAEZ3xqF+8FgLb2Kojd4ykzxD2cMkcMRv0r - Access Key
+
+
+SERVICES AND AVAILABILITY
+-------------------------
+S3 is available in every region so does not specify a region in the ARN
+IAM is also available in every region
+VPCs are region based, subnets are subject to Availability Zones
+EC2 is Region dependent
+
+
+NETWORK
+--------
+1st 4 and last address in a subnet are reserved by Amazon for special purposes
+NACLs are stateless and applies to the whole subnet within VPC
+Security Groups are like NACL but apply to an instance
+Peer Connection connects two VPCs
+Direct Connect is how you connect from one Amazon region to another without using the public internet
+https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-network-to-amazon.html
+
+
+INSTANCE METADATA 
+----------------
+curl http://169.254.169.254/latest/meta-data/ can be used to obtain info bout instance ONLY
+
+
+
+Bootstrapping with user data
+
+AWS LAMBDA
+-----------
+Runs code serverlessly
+
+
+S3
+----------
+Spans the whole region, uses all AZs in the region
+Durable to the loss of 2 AZs
+No filesystem but objects and buckets
+Can use SSE (Server Side Encryption - AES 256) 
+uses object storage vs block storage which is better
+Bucket Security can be done with Resource Policy
+Glacier - Archival Storage
+Lifecycle Rules - rules to detrmine of how stuff are auto archived to Glacier
+
+EC2
+------------
+Instance Store Volume - comes with EC2 and terminates with terminating the volume
+EBS Volume - can be attched to EC2, pay per provisioned, connected over the network, encrypted and stays in single AZ
+EBS Snapshot - stored in S3, can be used to create another volume, 
+
+
+Amazon RDS
+------------
+You responsible for only queries
+RDS Reliability - Same RDS in a different instance in a different AZ/subnet
+Can be backed up with snapshots into S3
+
