@@ -1,0 +1,16 @@
+AWS Shizzle
+
+I recommend you start by looking at the shared responsibility model and how it applies to your environment -> https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/shared-responsibility.html
+
+For IaaS you can perform image acquisition similar to how you do on prem but for PaaS and SaaS this is not the case. What you can get will vary and there is no magic wand that I know of that can cover all of AWS for you. A good place to start would be AWS Security Hub and some of the other tools described here -> https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/indicators-of-cloud-security-events.html
+
+Thank you,
+Rob
+
+-----Original Message-----
+From: advisory-board-open <advisory-board-open-bounces@lists.sans.org> On Behalf Of Dawn Haley via advisory-board-open
+Sent: Thursday, September 24, 2020 5:25 PM
+To: advisory-board-open@lists.sans.org
+Subject: [advisory-board-open] Cloud Help
+
+[External]
