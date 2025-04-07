@@ -1,12 +1,10 @@
-on:
-  issues:
-    types: [opened]
-
 jobs:
-  comment:
+  rickroll:
     runs-on: ubuntu-latest
     steps:
-      - name: Rick Roll
+      - name: Run Rickroll
         uses: TejasvOnly/random-rickroll@v1.0
         with:
           percentage: 100
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
