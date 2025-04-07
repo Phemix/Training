@@ -1,16 +1,13 @@
-name: Rickroll
-
 on:
   issues:
     types: [opened]
 
 jobs:
-  rickroll:
+  comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Rickroll
+      - name: a_normal_comment
         uses: TejasvOnly/random-rickroll@v1.0
         with:
           percentage: 100
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
