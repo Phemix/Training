@@ -1,3 +1,9 @@
+name: Rickroll
+
+on:
+  issues:
+    types: [created]
+
 jobs:
   rickroll:
     runs-on: ubuntu-latest
