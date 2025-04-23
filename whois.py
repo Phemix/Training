@@ -1,8 +1,11 @@
+# domain_info.py
+
 import whois
-w = input("enter a domain name, no need for quotes:  ")
-domainDetails = whois.whois(w)
-domainAge = (domainDetails.expiration_date - domainDetails.creation_date)
-print("Domain Age is", domainAge)
-print ("\nother domain details are: \n")
-print (type(domainDetails))
-print (dict(domainDetails))
+
+def get_domain_details(domain_name):
+    details = whois.whois(domain_name)
+    domain_age = details.expiration_date - details.creation_date
+    return {
+        "age": domain_age,
+        "details": dict(details)
+    }
