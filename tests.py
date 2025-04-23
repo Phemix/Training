@@ -16,5 +16,5 @@ def test_get_domain_details(mock_whois):
 
     result = get_domain_details("example.com")
     
-    assert result['age'].days == 1826  # 5 years including 1 leap year
+    assert result['age'].days == 1827  # 5 years including a leap year (2020 and 2024)
     assert 'domain_name' in result['details']
