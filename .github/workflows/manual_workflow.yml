@@ -13,6 +13,6 @@ jobs:
         run: echo "This workflow was triggered manually."
       - name: Print the GitHub event
         run: |
-          echo "Event: $GITHUB_EVENT_NAME"
-          echo "Repository: $GITHUB_REPOSITORY"
-          echo "Actor: $GITHUB_ACTOR"
+          echo "Event: ${{github.event_name}}"
+          echo "Repository: ${{github.ref_base}}"
+          echo "Actor: ${{github.actor}}"
