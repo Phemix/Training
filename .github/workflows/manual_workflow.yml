@@ -1,7 +1,12 @@
 name: Manual Trigger Workflow
 
+
 on:
   workflow_dispatch:
+    inputs:
+      rule_name:
+        description: "Rule name. If multiple rules, then use comma sepparator"
+        required: true
 
 jobs:
   build:
