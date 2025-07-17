@@ -31,6 +31,6 @@ jobs:
           echo "The secret is: $MY_SECRET"
 
   call_workflow:
-    uses: Phemix/TrynaLearnGitAndDocker/.github/workflows/callable_workflow.yml@main
+    uses: Phemix/TrynaLearnGitAndDocker/blob/master/.github/workflows/callable_workflow.yml@main
     with:
       Command: 'pull'
