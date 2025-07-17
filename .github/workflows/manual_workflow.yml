@@ -23,7 +23,7 @@ jobs:
           echo "Actor: ${{ github.actor }}"
 
   call_workflow:
-    uses: Phemix/TrynaLearnGitAndDocker/.github/workflows/callable_workflow.yml@main
+    uses: Phemix/TrynaLearnGitAndDocker/.github/workflows/femi_workflow.yml@07e2abd1c70fbf0531a899d32960fb2b8057aee9
     with:
       Command: 'pull'
       branch_name: 'main'
