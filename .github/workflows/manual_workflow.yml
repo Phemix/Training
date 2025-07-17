@@ -31,6 +31,6 @@ jobs:
           echo "The secret is: $MY_SECRET"
   call_workflow:
       # change @main to the branch name to source the CI file from
-      uses: Phemix/TrynaLearnGitAndDocker/.githhub/workflows/callable_workflow.yml@main
+      uses: Phemix/TrynaLearnGitAndDocker/.github/workflows/callable_worfklow.yml@main
       with:
         Command: 'pull'
