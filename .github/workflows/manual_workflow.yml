@@ -1,11 +1,10 @@
 name: Manual Trigger Workflow
 
-
 on:
   workflow_dispatch:
     inputs:
       rule_name:
-        description: "Rule name. If multiple rules, then use comma sepparator"
+        description: "Rule name. If multiple rules, then use comma separator"
         required: true
 
 jobs:
@@ -18,19 +17,20 @@ jobs:
         run: echo "This workflow was triggered manually."
       - name: Print the GitHub event
         run: |
-          echo "Event: ${{github.event_name}}"
-          echo "Repository: ${{github.ref_base}}"
-          echo "Actor: ${{github.actor}}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Repository: ${{ github.ref_base }}"
+          echo "Actor: ${{ github.actor }}"
+
   print-secret:
     runs-on: ubuntu-latest
     steps:
       - name: Print the secret
         env:
-          MY_SECRET: ${{ secrets.FEMI_TEST_SECRET}}
+          MY_SECRET: ${{ secrets.FEMI_TEST_SECRET }}
         run: |
           echo "The secret is: $MY_SECRET"
+
   call_workflow:
-      # change @main to the branch name to source the CI file from
-      uses: Phemix/TrynaLearnGitAndDocker/.github/workflows/callable_worfklow.yml@main
-      with:
-        Command: 'pull'
+    uses: Phemix/TrynaLearnGitAndDocker/.github/workflows/callable_workflow.yml@main
+    with:
+      Command: 'pull'
