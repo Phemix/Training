@@ -27,5 +27,5 @@ jobs:
     with:
       Command: 'pull'
       branch_name: 'main'
-      rule_name: 'example-rule'
+      rule_name: '${{ inputs.rule_name }}'
       author: 'example-author'
