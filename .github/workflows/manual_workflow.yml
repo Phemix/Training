@@ -29,3 +29,5 @@ jobs:
       branch_name: 'main'
       rule_name: '${{ inputs.rule_name }}'
       author: 'example-author'
+    secrets:
+        acess_token: ${{ secrets.FEMI_TEST_SECRET }} #Monorepo token
