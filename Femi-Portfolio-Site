@@ -1,0 +1,47 @@
+# DevOps Portfolio Website – AWS S3 Hosting Project
+
+## Project Overview
+This project is a static DevOps portfolio website built with HTML and CSS and hosted on Amazon S3 using static website hosting. The site demonstrates professional skills, certifications, projects, and contact information. It includes full deployment instructions and AWS setup for public hosting, lifecycle management, and optional DNS configuration.
+
+---
+
+## 1. Website Customization
+The portfolio website (`index.html`) was customized with:
+
+- **Layout & Design**
+  - Modern hero-style header with centered name, role, and contact button
+  - Grid-based sections for Skills, Certifications, and Projects
+  - Responsive design for mobile and desktop
+- **Theme**
+  - Dark background with bright accent color for contrast
+  - Consistent typography and spacing for readability
+- **Content**
+  - Real personal info, skills, certifications, and projects
+  - Contact info with email and LinkedIn link
+- **File Structure**
+  - Single HTML file with embedded CSS for easy deployment
+
+---
+
+## 2. AWS S3 Bucket Setup
+Steps for hosting the website on S3:
+
+1. **Bucket Creation**
+   - Bucket Name: `femi-portfolio-site`
+   - Disabled “Block all public access” during creation
+2. **Static Website Hosting**
+   - Enabled under **Properties** → Static website hosting
+   - Index document: `index.html`
+3. **File Upload**
+   - Uploaded `index.html` and any associated assets
+
+---
+
+## 3. Public Access with Bucket Policy
+To make the site public, a bucket policy was applied:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
