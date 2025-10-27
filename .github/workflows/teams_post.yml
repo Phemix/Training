@@ -13,8 +13,11 @@ jobs:
           # Request an access token from Azure AD
           ACCESS_TOKEN=$(curl -s -X POST \
             -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "client_id=aHp8Q~oz3Vp5CxXMK6D3QzfN5XBDVWVUX.pdfbZv&scope=https://graph.microsoft.com/.default&client_secret=035984bc-5f91-4994-bbaa-c7f84ee8960a&grant_type=client_credentials" \
+            -d "grant_type=client_credentials&client_id=aHp8Q3Vp5CxXMK6D3QzfN5XBDVWVUX&client_secret=035984bc-5f91-4994-bbaa-c7f84ee8960a&scope=https://graph.microsoft.com/.default" \
             https://login.microsoftonline.com/4902dd33-d23c-4e7e-ac54-029d0bcd0dbc/oauth2/v2.0/token | jq -r .access_token)
+
+          # Debug: print token (optional, remove in production)
+          echo "Access Token: $ACCESS_TOKEN"
 
           # Send the PR message to Teams group chat
           curl -X POST \
