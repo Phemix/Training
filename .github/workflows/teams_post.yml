@@ -22,4 +22,4 @@ jobs:
             -H "Authorization: Bearer $ACCESS_TOKEN" \
             -H "Content-Type: application/json" \
             -d "{\"body\": {\"contentType\": \"html\", \"content\": \"🔔 New PR: <a href='${{ github.event.pull_request.html_url }}'>${{ github.event.pull_request.title }}</a>\"}}" \
-            https://graph.microsoft.com/v1.0/chats/<FAA4JEoNvtPZp7luwI/messages
+            https://graph.microsoft.com/v1.0/chats/FAA4JEoNvtPZp7luwI/messages
