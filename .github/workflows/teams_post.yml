@@ -10,16 +10,19 @@ jobs:
     steps:
       - name: Notify Teams via Delegated Token
         run: |
-          # Exchange refresh token for access token
+          # Exchange refresh token for an access token
           ACCESS_TOKEN=$(curl -s -X POST \
             -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "client_id=${{ secrets.CLIENT_ID }}&scope=https://graph.microsoft.com/.default&refresh_token=${{ secrets.REFRESH_TOKEN }}&grant_type=refresh_token&client_secret=${{ secrets.CLIENT_SECRET }}" \
+            -d "client_id=${{ secrets.CLIENT_ID }}&client_secret=${{ secrets.CLIENT_SECRET }}&refresh_token=${{ secrets.REFRESH_TOKEN }}&grant_type=refresh_token&scope=https://graph.microsoft.com/.default" \
             https://login.microsoftonline.com/${{ secrets.TENANT_ID }}/oauth2/v2.0/token | jq -r .access_token)
 
-          # Debug: print token (optional)
-          echo "Access Token retrieved"
+          # Fail if token was not retrieved
+          if [ -z "$ACCESS_TOKEN" ]; then
+            echo "Failed to retrieve access token"
+            exit 1
+          fi
 
-          # Post message to Teams chat
+          # Send the PR message to the Teams chat
           curl -X POST \
             -H "Authorization: Bearer $ACCESS_TOKEN" \
             -H "Content-Type: application/json" \
