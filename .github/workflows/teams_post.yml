@@ -10,14 +10,13 @@ jobs:
     steps:
       - name: Notify Teams via Graph
         run: |
+          # Request an access token from Azure AD
           ACCESS_TOKEN=$(curl -s -X POST \
             -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "client_id=aHp8Q~oz3Vp5CxXMK6D3QzfN5XBDVWVUX.pdfbZv" \
-            -d "scope=https://graph.microsoft.com/.default" \
-            -d "client_secret=035984bc-5f91-4994-bbaa-c7f84ee8960a" \
-            -d "grant_type=client_credentials" \
+            -d "client_id=aHp8Q~oz3Vp5CxXMK6D3QzfN5XBDVWVUX.pdfbZv&scope=https://graph.microsoft.com/.default&client_secret=035984bc-5f91-4994-bbaa-c7f84ee8960a&grant_type=client_credentials" \
             https://login.microsoftonline.com/4902dd33-d23c-4e7e-ac54-029d0bcd0dbc/oauth2/v2.0/token | jq -r .access_token)
 
+          # Send the PR message to Teams group chat
           curl -X POST \
             -H "Authorization: Bearer $ACCESS_TOKEN" \
             -H "Content-Type: application/json" \
