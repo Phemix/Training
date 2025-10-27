@@ -2,15 +2,24 @@ name: Notify Teams on Pull Request
 
 on:
   pull_request:
-    types: [opened]   # You can adjust which PR events trigger it
+    types: [opened, reopened, closed]
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send message to Teams
+      - name: Notify Teams via Graph
         run: |
+          ACCESS_TOKEN=$(curl -s -X POST \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "client_id=aHp8Q~oz3Vp5CxXMK6D3QzfN5XBDVWVUX.pdfbZv" \
+            -d "scope=https://graph.microsoft.com/.default" \
+            -d "client_secret=035984bc-5f91-4994-bbaa-c7f84ee8960a" \
+            -d "grant_type=client_credentials" \
+            https://login.microsoftonline.com/4902dd33-d23c-4e7e-ac54-029d0bcd0dbc/oauth2/v2.0/token | jq -r .access_token)
+
           curl -X POST \
-               -H "Content-Type: application/json" \
-               -d "{\"text\": \"New PR by ${{ github.event.pull_request.user.login }}: ${{ github.event.pull_request.html_url }}\"}" \
-               https://teams.live.com/l/invite/FAA4JEoNvtPZp7luwI
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"body\": {\"contentType\": \"html\", \"content\": \"🔔 New PR: <a href='${{ github.event.pull_request.html_url }}'>${{ github.event.pull_request.title }}</a>\"}}" \
+            https://graph.microsoft.com/v1.0/chats/<FAA4JEoNvtPZp7luwI/messages
